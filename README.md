@@ -1,6 +1,5 @@
 # Prueba técnica - Estudio Faser - David Elias
 ## Requerimientos
-En este repositorio encontrarás un proyecto base Angular con elementos muy básicos. Dentro de `AppComponent` se encuentra una variable que contiene un listado de tareas. Debes realizar las modificaciones necesarias para obtener los siguientes resultados:
 1. Cambiar el listado ordenado por una tabla HTML.
 2. Agregar la opción para poder agregar nuevas tareas al listado, cada una con su título y duración en minutos.
 3. Agregar la opción para eliminar cualquier tarea del listado.
