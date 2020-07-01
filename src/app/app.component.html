@@ -1,7 +1,39 @@
 <div class="container">
-	<h1>Prueba técnica - Estudio Faser</h1>
-	<h2>Listado de tareas</h2>
-	<ol>
-		<li *ngFor="let tarea of tareas">{{tarea.titulo}} ({{tarea.minutos}} minutos)</li>
-	</ol>
+  <h1>Prueba técnica - Estudio Faser</h1>
+  <h2>Listado de tareas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th><input type="checkbox" [(ngModel)]="selectAll" name="list_name" value="m1" (change)="selectUnselectAll()"></th>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Minutos</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let tarea of tareas " [ngStyle]="{'background-color': tarea.importante == true ?  'green': 'white'}">
+        <th><input type="checkbox" [(ngModel)]="tarea.check" name="list_name" value="{{tarea.id}}" (change)="isAllSelected()" ></th>
+        <th scope="row">{{tarea.id}}</th>
+        <td>{{tarea.titulo}}</td>
+        <td>{{tarea.minutos}}</td>
+        <td ><button id="eliminar" (click)="deleteRow(tarea.id)"> X </button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+  <label>
+    Nueva Tarea -> &nbsp;
+    Id:      &nbsp;&nbsp; <input type="text" [formControl]="id">         &nbsp;&nbsp;
+    Titulo:  &nbsp;&nbsp; <input type="text" [formControl]="titulo">     &nbsp;&nbsp;
+    Minutos: &nbsp;&nbsp; <input type="text" [formControl]="minutos">    &nbsp;&nbsp;
+             &nbsp;&nbsp; <button id="eliminar" (click)="addRow()"> Agregar Tarea </button>
+  </label>
+  <hr />
+  <button id="ordenar" (click)="bubbleSort()"> Ordenar Tareas </button> &nbsp;&nbsp;
+  <button id="importantes" (click)="changeImportantValue()"> Marcar/Desmarcar Tareas Importantes </button>
+  <hr />
+
 </div>
